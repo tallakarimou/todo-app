@@ -38,7 +38,8 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Todo::create([$request]);
+        return view('todo.index');
     }
 
     /**
@@ -49,9 +50,9 @@ class TodoController extends Controller
      */
     public function show($id)
     {
-        $todos = Todo::find($id);
+        $todo = Todo::find($id);
 
-        return view('todo.create',compact('todos'));
+        return view('todo.show',compact('todo'));
     }
 
     /**
@@ -62,7 +63,9 @@ class TodoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = Todo::find($id);
+
+        return view('todo.edit',compact('todo'));
     }
 
     /**
