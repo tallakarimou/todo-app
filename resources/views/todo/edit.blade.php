@@ -3,8 +3,9 @@
 @section('content')
 <h1 class="text-center"> EDIT TASK</h1>
 
-<form action="{{ route('todos.store') }}" method="POST">
+<form action="{{ route('todos.update',[$todo->id]) }}" method="POST">
 @csrf
+@method('PATCH')
 <div class="form-group">
     <label for="title">title</label>
     <input id="title" class="form-control" type="text" name="title" value="{{ $todo->title }}">
